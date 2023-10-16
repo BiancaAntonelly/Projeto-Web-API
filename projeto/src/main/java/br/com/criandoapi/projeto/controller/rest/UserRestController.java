@@ -43,13 +43,14 @@ public class UserRestController {
         }
     }
 
-    @PutMapping("/delete/{id}")
-    public ResponseEntity<Map<String, String>> deleteUser(@PathVariable Long id) {
-        Map<String, String> response = userService.deactivateUser(id);
+    @PutMapping("/delete")
+    public ResponseEntity<Map<String, String>> deleteUser(@RequestBody User deleteUser) {
+        Map<String, String> response = userService.deactivateUser(deleteUser);
 
         HttpStatus httpStatus = response.containsKey("error") ? HttpStatus.NOT_FOUND : HttpStatus.OK;
         return ResponseEntity.status(httpStatus).body(response);
     }
+
 
 
 

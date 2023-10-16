@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -31,20 +31,20 @@ public class User {
     @Size(min = 8, max = 60)
     private String password;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public String getName() {
@@ -55,19 +55,27 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
